@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<head><style>
+body {
+background: url(images/32.jpg) no-repeat center fixed; 
+   background-size:cover;
+    border-radius: 5px;
+   
+    padding: 20px;
+     
+} 
+table {
+    border-collapse: collapse;
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+th {
+    background-color:     #CF7691;
+    color: white;
+}
+h1
+{
+font-size: 40px;
+color:   #CF7691;
+}
+</style>
+
+</head>
+<div>
+	<hr>
+	
+	<h2>All Forum</h2>
+	<span class="clearfix"></span>
+	</hr>
+	<hr>
+	</hr>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>forum_id</th>
+				<th>questionTitle</th>
+				<th>questionDescription</th>
+				
+				<th>date</th>
+				<th>postedby</th>
+			
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="forum in forums">
+				<td>{{forum.forum_id}}</td>
+				<td>{{forum.questionTitle}}</td>
+				<td>{{forum.questionDescription}}</td>
+				
+				<td>{{forum.date}}</td>
+				<td>{{forum.postedBy}}</td>
+				<td><button type="button" class="btn btn-danger btn-sm " ng-click="answer(forum)">Answer</button></td>
+				<td><button type="button" class="btn btn-danger btn-sm "
+						data-toggle="modal" data-target="#answers"
+						ng-click="viewanswers(forum)">View Answers</button></td>
+				
+			</tr>
+		</tbody>
+	</table>
+	<div class="modal fade" id="answers" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">View Answers</h4>
+				</div>
+				<div class="modal-body">
+				
+	<span class="clearfix"></span>
+	</hr>
+	
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				
+				<th>Answer</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+		
+			<tr ng-repeat="ansforum in ansforums">
+				
+				<td>{{ansforum.answer}}</td>
+				
+				
+			
+		</tbody>
+		
+	</table>
+				</div>
+		<div class="modal-footer">
+				<button type="button" class="btn-btn-primary btn-sm" data-dismiss="modal"
+					ng-click="">Close</button>
+				</div>	</div></div></div>
